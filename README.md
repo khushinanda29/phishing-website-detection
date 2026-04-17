@@ -73,7 +73,7 @@ We trained and compared the following models:
 - XGBoost
 - LightGBM
 
-Most models used the original target labels `-1` and `1`, while XGBoost and LightGBM used a remapped binary target `0` and `1` for cleaner handling of binary classification in those boosting libraries. The feature values themselves were left unchanged. The XGBoost and LightGBM notebooks show this target remapping directly. :contentReference[oaicite:1]{index=1}
+Most models used the original target labels `-1` and `1`, while XGBoost and LightGBM used a remapped binary target `0` and `1` for cleaner handling of binary classification in those boosting libraries. The feature values themselves were left unchanged. The XGBoost and LightGBM notebooks show this target remapping directly.
 
 ## Modeling Approach
 To ensure fair model comparison, we used a consistent workflow across notebooks:
