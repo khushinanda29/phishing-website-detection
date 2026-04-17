@@ -225,15 +225,6 @@ There are several directions for future improvement:
 
 A valuable next step would be to integrate the best-performing model into a practical tool for real-world phishing detection. More broadly, bridging classical machine learning and deep learning approaches could provide both strong predictive performance and interpretability.
 
-## Research Papers That Guided Our Project
-Two key papers helped shape our project direction and methodology.
-
-The first is our **target paper**, *URLTran: Improving Phishing URL Detection Using Transformers* by P. Maneriker et al. (IEEE MILCOM, 2021). This paper represents a modern deep learning approach to phishing detection. URLTran applies transformer models such as BERT and RoBERTa directly to raw URL strings without relying on hand-crafted features. We used this paper as a benchmark because it reflects the direction of current phishing detection research. Our goal was to see how well traditional feature-based machine learning could perform in comparison to a transformer-based approach. While URLTran highlights the strength of deep learning on raw URLs, our results showed that classical machine learning models on structured features can still achieve very competitive performance, while also being faster and easier to interpret.
-
-The second is our **support paper**, *Towards Detection of Phishing Websites on Client-Side Using Machine Learning Based Approach* by A. K. Jain and B. B. Gupta (Telecommunication Systems, 2018). This paper takes a feature-based machine learning approach and focuses on phishing detection using information gathered directly from the client side, such as URL-based and webpage source-code features, without relying heavily on third-party services. This paper strongly supports our methodology because our project also uses structured website and URL-related features as input to machine learning models. It helped validate that feature engineering remains a reliable and effective strategy for phishing website detection.
-
-Together, these two papers frame our project well. The URLTran paper shows where the field is moving with transformer-based deep learning methods, while the Jain and Gupta paper reinforces the strength of the feature-based machine learning approach that we used. Our project sits between these two perspectives by evaluating how far classical machine learning can go on a well-structured phishing dataset before moving to more advanced deep learning approaches.
-
 ## References
 1. P. Maneriker et al., *URLTran: Improving phishing URL detection using transformers*, IEEE MILCOM, 2021, pp. 197–204.
 2. A. K. Jain and B. B. Gupta, *Towards detection of phishing websites on client-side using machine learning based approach*, Telecommunication Systems, vol. 68, pp. 687–700, 2018.
