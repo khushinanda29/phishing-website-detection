@@ -31,7 +31,7 @@ The target variable itself is binary:
 - `-1` = phishing
 - `1` = legitimate
 
-A key preprocessing decision in this project was to **keep the feature-level `0` values**. In this dataset, `0` is not a missing value. Instead, it represents a meaningful suspicious or intermediate category for certain predictors. The ARFF schema shows several predictors with three allowed values while the target `Result` remains binary. :contentReference[oaicite:0]{index=0}
+A key preprocessing decision in this project was to **keep the feature-level `0` values**. In this dataset, `0` is not a missing value. Instead, it represents a meaningful suspicious or intermediate category for certain predictors. The ARFF schema shows several predictors with three allowed values while the target `Result` remains binary. 
 
 ## Project Goals
 The main goals of this project were to:
@@ -85,9 +85,9 @@ To ensure fair model comparison, we used a consistent workflow across notebooks:
 - tune hyperparameters for selected models
 - evaluate final performance on the hold-out test set
 
-For KNN, feature scaling was added because KNN is distance-based and depends on comparable feature scales. The KNN notebook uses a pipeline with `StandardScaler()` and `KNeighborsClassifier()`. :contentReference[oaicite:2]{index=2}
+For KNN, feature scaling was added because KNN is distance-based and depends on comparable feature scales. The KNN notebook uses a pipeline with `StandardScaler()` and `KNeighborsClassifier()`. 
 
-For Naive Bayes, a Bernoulli Naive Bayes model was used as the final baseline, with features converted into binary indicators and labels unified to `0/1`. A Gaussian Naive Bayes model was also run as a reference baseline, but it performed much worse and was not selected as the final Naive Bayes version. :contentReference[oaicite:3]{index=3}
+For Naive Bayes, a Bernoulli Naive Bayes model was used as the final baseline, with features converted into binary indicators and labels unified to `0/1`. A Gaussian Naive Bayes model was also run as a reference baseline, but it performed much worse and was not selected as the final Naive Bayes version. 
 
 ## Evaluation Metrics
 Models were evaluated using:
@@ -102,7 +102,7 @@ We also checked for overfitting by comparing training accuracy and test accuracy
 ## Results Summary
 
 ### Decision Tree
-The tuned Decision Tree achieved a cross-validation accuracy of **0.9290 ± 0.0053** and a final test accuracy of **0.9316**. :contentReference[oaicite:4]{index=4}
+The tuned Decision Tree achieved a cross-validation accuracy of **0.9290 ± 0.0053** and a final test accuracy of **0.9316**. 
 
 Best tuned parameters:
 - `criterion = entropy`
@@ -114,12 +114,12 @@ Final test metrics:
 - Accuracy: **0.9316**
 - Precision: **0.9248**
 - Recall: **0.9346**
-- F1 Score: **0.9297** :contentReference[oaicite:5]{index=5}
+- F1 Score: **0.9297** 
 
-The entropy-based Decision Tree was selected as the final baseline tree model because it slightly outperformed the Gini-based model overall. :contentReference[oaicite:6]{index=6}
+The entropy-based Decision Tree was selected as the final baseline tree model because it slightly outperformed the Gini-based model overall. 
 
 ### Random Forest
-The tuned Random Forest achieved a cross-validation accuracy of **0.9464 ± 0.0109** and a final test accuracy of **0.9436**. :contentReference[oaicite:7]{index=7}
+The tuned Random Forest achieved a cross-validation accuracy of **0.9464 ± 0.0109** and a final test accuracy of **0.9436**. 
 
 Best tuned parameters:
 - `n_estimators = 100`
@@ -132,7 +132,7 @@ Final test metrics:
 - Accuracy: **0.9436**
 - Precision: **0.9386**
 - Recall: **0.9452**
-- F1 Score: **0.9419** :contentReference[oaicite:8]{index=8}
+- F1 Score: **0.9419** 
 
 ### K-Nearest Neighbors
 The best KNN model used:
@@ -140,23 +140,23 @@ The best KNN model used:
 - `weights = uniform`
 - `metric = manhattan`
 
-It achieved a cross-validation accuracy of **0.9393 ± 0.0076** and a hold-out test accuracy of **0.9308**. :contentReference[oaicite:9]{index=9}
+It achieved a cross-validation accuracy of **0.9393 ± 0.0076** and a hold-out test accuracy of **0.9308**. 
 
 Final test metrics:
 - Accuracy: **0.9308**
 - Precision: **0.9277**
 - Recall: **0.9293**
-- F1 Score: **0.9285** :contentReference[oaicite:10]{index=10}
+- F1 Score: **0.9285**
 
 ### Naive Bayes
-The GaussianNB reference baseline achieved only **0.6547** accuracy, confirming that a Gaussian assumption was not a good fit for this dataset. The final Naive Bayes baseline used BernoulliNB instead. :contentReference[oaicite:11]{index=11}
+The GaussianNB reference baseline achieved only **0.6547** accuracy, confirming that a Gaussian assumption was not a good fit for this dataset. The final Naive Bayes baseline used BernoulliNB instead. 
 
 BernoulliNB achieved:
 - CV Accuracy: **0.9036 ± 0.0137**
 - Test Accuracy: **0.8923**
 - Precision: **0.8729**
 - Recall: **0.9099**
-- F1 Score: **0.8910** :contentReference[oaicite:12]{index=12}
+- F1 Score: **0.8910**
 
 ### XGBoost
 XGBoost was trained using randomized hyperparameter search with 5-fold stratified cross-validation.
@@ -166,14 +166,14 @@ Best parameters:
 - `n_estimators = 200`
 - `max_depth = 5`
 - `learning_rate = 0.1`
-- `colsample_bytree = 0.8` :contentReference[oaicite:13]{index=13}
+- `colsample_bytree = 0.8`
 
 It achieved:
 - CV Accuracy: **0.9519 ± 0.0053**
 - Test Accuracy: **0.9521**
 - Precision: **0.9554**
 - Recall: **0.9452**
-- F1 Score: **0.9503** :contentReference[oaicite:14]{index=14}
+- F1 Score: **0.9503** 
 
 ### LightGBM
 LightGBM used a hold-out test split with hyperparameter tuning through GridSearchCV on the training split only.
@@ -206,7 +206,7 @@ Across multiple models, a consistent set of features appeared among the most inf
 - `Request_URL`
 - `Google_Index`
 
-These results suggest that SSL behavior, URL structure, anchor behavior, and domain-based credibility are some of the strongest indicators of phishing websites. :contentReference[oaicite:15]{index=15} :contentReference[oaicite:16]{index=16} :contentReference[oaicite:17]{index=17} :contentReference[oaicite:18]{index=18} :contentReference[oaicite:19]{index=19}
+These results suggest that SSL behavior, URL structure, anchor behavior, and domain-based credibility are some of the strongest indicators of phishing websites.
 
 ## Key Takeaways
 - Tree-based and boosting models performed best on this structured phishing dataset.
